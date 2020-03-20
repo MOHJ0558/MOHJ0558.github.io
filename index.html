@@ -14,6 +14,15 @@
 				background-color: #F8F8F8;
 			}
 			
+			a {
+				text-decoration: none;
+			}
+			
+			a:link {color:#0000FF;}      /* 未访问链接*/
+			a:visited {color:#0000FF;}  /* 已访问链接 */
+			a:hover {color:#000080;}  /* 鼠标移动到链接上 */
+			a:active {color:#000000;}  /* 鼠标点击时 */
+			
 			.center {
 				position: absolute;
 			}
@@ -22,15 +31,15 @@
 				width:10vw;
 				height:10vh;
 				background: #F8F8F8;
-				animation: move 10s ease;
-				-webkit-animation: move 10s ease;
+				animation: move 5s ease;
+				-webkit-animation: move 5s ease;
 			}
 			
 			#stepin {
 				position: relative;
-				animation: stepin 10s ease-out;
+				animation: stepin 5s ease-out;
 				animation-fill-mode:forwards;
-				-webkit-animation: stepin 10s ease-out;
+				-webkit-animation: stepin 5s ease-out;
 				-webkit-animation-fill-mode:forwards;
 			}
 			
@@ -40,16 +49,24 @@
 				font-family: Monaco;
 			}
 			
-			h3 {
+			h1:hover {
+				color: #404040;
+			}
+			
+			h1:active {
+				color: #808080;
+			}
+			
+			h6 {
 				text-align: center;
-				font-size:5vh;
+				font-size:3vh;
 				font-family: Calibri;
 			}
 			
 			@keyframes move {
 				0%   {top:0px; left:0px; background:red;}
 				25%  {top:0px; left:90vw; background:yellow;}
-				50%  {top:90vh; left:90vw; background:blue;}
+				50%  {top:90vh; left:90vw; background:green;}
 				75%  {top:90vh; left:0px; background:purple;}
 				100% {top:0px; left:0px; background:red;}
 			}
@@ -68,7 +85,7 @@
 			@-webkit-keyframes move {
 				0%   {top:0px; left:0px; background:red;}
 				25%  {top:0px; left:90vw; background:yellow;}
-				50%  {top:90vh; left:90vw; background:blue;}
+				50%  {top:90vh; left:90vw; background:green;}
 				75%  {top:90vh; left:0px; background:purple;}
 				100% {top:0px; left:0px; background:red;}
 			}
@@ -91,7 +108,7 @@
 		<script src="https://cdn.staticfile.org/canvas-nest.js/2.0.4/canvas-nest.js"></script>
 		<div id="stepin">
 			<h1>Hello, world.</h1>
-			<h3>Powered by: MOHJ0558</h3>
+			<h6 id="stepin" style="text-align:right">Powered by MOHJ0558.</h6>
 		</div>
 		<div class="move center" ></div>
 	</body>
