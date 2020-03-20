@@ -1,20 +1,98 @@
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <style>
-    .keypoint{
-      color:black;
-    }
-    .keypoint:hover{
-      background-color:black;
-      color:white;
-      text-decoration:underline;
-    }
-  </style>
-</head>
-<body>
-  <h1>Welcome to my website!</h1>
-	Lorem ipsum dolor sit amet, <span class="keypoint">consectetur adipiscing elit</span>. Suspendisse mattis ex ac sapien placerat interdum. Sed in aliquam nisl, pharetra placerat purus. Nullam at consequat risus, ut varius sapien. Morbi consequat turpis gravida leo auctor molestie. Duis et felis a lorem sodales cursus eget sit amet est. Duis malesuada suscipit vestibulum. Phasellus volutpat ex ac tortor eleifend, sit amet tincidunt lectus consequat. Etiam malesuada augue at ex commodo pulvinar. Proin a tristique magna. Nulla eu ultrices elit. Nam rhoncus augue velit, et facilisis velit fermentum ut. Morbi id felis fermentum, commodo dolor sollicitudin, hendrerit tortor.
-	Donec eu porttitor quam, in dignissim orci. Vivamus vestibulum efficitur orci ut auctor. Vivamus mollis eros nisi, ut mollis felis ultricies eu. Nunc ac magna at turpis finibus euismod. Morbi dapibus tortor felis, ac finibus leo suscipit in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut faucibus molestie dui et ullamcorper. Quisque dignissim facilisis nisl. In ac neque nec mi porttitor tempor id a ex. Praesent vehicula vestibulum mauris a gravida. Suspendisse fermentum lacus lectus, sed tristique mauris laoreet nec. Pellentesque scelerisque fermentum erat eu hendrerit. Quisque vel aliquet nibh. Praesent mattis pretium odio in lobortis. Proin nec consequat tortor. In hac habitasse platea dictumst. 
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Welcome!</title>
+		<style>
+			body {
+				position: absolute;
+				border:  0;
+				height:  100%;
+				margin:  0;
+				padding: 0;
+				width:   100%;
+				background-color: #F8F8F8;
+			}
+			
+			.center {
+				position: absolute;
+			}
+		
+			.move {
+				width:10vw;
+				height:10vh;
+				background: #F8F8F8;
+				animation: move 10s ease;
+				-webkit-animation: move 10s ease;
+			}
+			
+			#stepin {
+				position: absolute;
+				animation: stepin 10s ease-out;
+				animation-fill-mode:forwards;
+				-webkit-animation: stepin 10s ease-out;
+				-webkit-animation-fill-mode:forwards;
+			}
+			
+			h1 {
+				text-align: center;
+				font-size:10vh;
+				font-family: Monaco;
+			}
+			
+			h3 {
+				text-align: center;
+				font-size:5vh;
+				font-family: Calibri;
+			}
+			
+			@keyframes move {
+				0%   {top:0px; left:0px; background:red;}
+				25%  {top:0px; left:90vw; background:yellow;}
+				50%  {top:90vh; left:90vw; background:blue;}
+				75%  {top:90vh; left:0px; background:purple;}
+				100% {top:0px; left:0px; background:red;}
+			}
+			
+			@keyframes stepin {
+				from {
+					top:0px;
+					color: #F8F8F8;
+				}
+				to {
+					top:30vh;
+					color: black;
+				}
+			}
+			
+			@-webkit-keyframes move {
+				0%   {top:0px; left:0px; background:red;}
+				25%  {top:0px; left:90vw; background:yellow;}
+				50%  {top:90vh; left:90vw; background:blue;}
+				75%  {top:90vh; left:0px; background:purple;}
+				100% {top:0px; left:0px; background:red;}
+			}
+			
+			@-webkit-keyframes stepin {
+				from {
+					top:0px;
+					color: #F8F8F8;
+				}
+				to {
+					top:30vh;
+					color: black;
+				}
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<script src="https://cdn.staticfile.org/canvas-nest.js/2.0.4/canvas-nest.js"></script>
+		<div id="stepin" style="position:relative">
+			<h1>Hello, world.</h1>
+			<h3>powerd by: MOHJ0558</h3>
+		</div>
+		<div class="move center" ></div>
+	</body>
 </html>
