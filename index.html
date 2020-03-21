@@ -5,36 +5,36 @@
 		<title>Welcome!</title>
 		<style>
 			body {
-				position: absolute;
-				border:  0;
-				height:  100%;
-				margin:  0;
-				padding: 0;
-				width:   100%;
-				background-color: #F8F8F8;
+				position:			absolute;
+				border:				0;
+				height:				100%;
+				margin:   			0;
+				padding:  			0;
+				width:    			100%;
+				background-color: 	#F8F8F8;
 			}
-			
+
 			a {
 				text-decoration: none;
 			}
-			
-			a:link {color:#0000FF;}      /* 未访问链接*/
-			a:visited {color:#0000FF;}  /* 已访问链接 */
-			a:hover {color:#000080;}  /* 鼠标移动到链接上 */
-			a:active {color:#000000;}  /* 鼠标点击时 */
-			
+
+			a:link		{color:#0000FF;}      /* 未访问链接*/
+			a:visited	{color:#0000FF;}  /* 已访问链接 */
+			a:hover		{color:#000080;}  /* 鼠标移动到链接上 */
+			a:active	{color:#000000;}  /* 鼠标点击时 */
+
 			.center {
 				position: absolute;
 			}
-		
+
 			.move {
-				width:10vw;
-				height:10vh;
+				width: 10vw;
+				height: 10vh;
 				background: #F8F8F8;
-				animation: move 5s ease;
-				-webkit-animation: move 5s ease;
+				animation: move 5s ease-in-out;
+				-webkit-animation: move 5s ease-in-out;
 			}
-			
+
 			#stepin {
 				position: relative;
 				animation: stepin 5s ease-out;
@@ -42,35 +42,35 @@
 				-webkit-animation: stepin 5s ease-out;
 				-webkit-animation-fill-mode:forwards;
 			}
-			
+
 			h1 {
 				text-align: center;
 				font-size:10vh;
 				font-family: Monaco;
 			}
-			
+
 			h1:hover {
 				color: #404040;
 			}
-			
+
 			h1:active {
 				color: #808080;
 			}
-			
+
 			h6 {
 				text-align: center;
 				font-size:3vh;
 				font-family: Calibri;
 			}
-			
+
 			@keyframes move {
 				0%   {top:0px; left:0px; background:red;}
-				25%  {top:0px; left:90vw; background:yellow;}
-				50%  {top:90vh; left:90vw; background:green;}
-				75%  {top:90vh; left:0px; background:purple;}
-				100% {top:0px; left:0px; background:red;}
+				25%  {top:0px; left:92.5vw; background:yellow; width: 7.5vw; height: 7.5vh}
+				50%  {top:95vh; left:95vw; background:green; width: 5vw; height: 5vh}
+				75%  {top:97.5vh; left:0px; background:purple; width: 2.5vw; height: 2.5vh}
+				100% {top:0px; left:0px; background:red; width: 0vw; height: 0vh}
 			}
-			
+
 			@keyframes stepin {
 				from {
 					top:0px;
@@ -81,7 +81,7 @@
 					color: black;
 				}
 			}
-			
+
 			@-webkit-keyframes move {
 				0%   {top:0px; left:0px; background:red;}
 				25%  {top:0px; left:90vw; background:yellow;}
@@ -89,7 +89,7 @@
 				75%  {top:90vh; left:0px; background:purple;}
 				100% {top:0px; left:0px; background:red;}
 			}
-			
+
 			@-webkit-keyframes stepin {
 				from {
 					top:0px;
@@ -100,15 +100,15 @@
 					color: black;
 				}
 			}
-			
-			
+
+
 		</style>
 	</head>
 	<body>
 		<script src="https://cdn.staticfile.org/canvas-nest.js/2.0.4/canvas-nest.js"></script>
 		<div id="stepin">
 			<h1>Hello, world.</h1>
-			<h6 id="stepin" style="text-align:right">Powered by MOHJ0558.</h6>
+			<h6 id="stepin" style="text-align:right">Powered by MOHJ0558.&nbsp;&nbsp;</h6>
 		</div>
 		<div class="move center" ></div>
 	</body>
