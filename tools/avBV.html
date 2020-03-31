@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<title>Bilibili conversion between av and BV.</title>
+		<style>
+			@keyframes stepin {
+				from {
+					top: 0px;
+					color: #FFFFFF;
+				}
+				to {
+					top: 6vh;
+					color: black;
+				}
+			}
+			@-webkit-keyframes stepin {
+				from {
+					top: 0px;
+					color: #F8F8F8;
+				}
+				to {
+					top: 6vh;
+					color: black;
+				}
+			}
+			#stepin {
+				position: relative;
+				animation: stepin 2s linear;
+				animation-fill-mode: forwards;
+				-webkit-animation: stepin 2s linear;
+				-webkit-animation-fill-mode: forwards;
+			}
+			body {
+				font-family: sans-serif;
+				position: absolute;
+				border: 0;
+				height: 100%;
+				margin: 0;
+				padding: 6vh 25vw 5vh 25vw;
+				width: 100%;
+			}
+			input[type="text"] {
+				background-color: #F0F0F0;
+				border:2px solid #F0F0F0;
+				font-family: monospace;
+			}
+			input[type="text"]:hover {
+				background-color: #E0E0E0;
+			}
+			input[type="text"]:active {
+				background-color: #D0D0D0;
+			}
+			input[type="button"] {
+				font-family: monospace;
+				background-color: #F0F0F0;
+				border:2px solid;
+				border-color: #F0F0F0;
+				border-radius:5px;
+			}
+			input[type="button"]:hover {
+				background-color: #E0E0E0;
+			}
+			input[type="button"]:active {
+				background-color: #D0D0D0;
+			}
+		</style>
+		<script>
+			var xorn=177451812;
+			var add=8728348608;
+			var s=[11,10,3,8,4,6];
+			const TABLE=['f','Z','o','d','R','9','X','Q','D','S','U','m','2','1','y','C','k','r','6','z','B','q','i','v','e','Y','a','h','8','b','t','4','x','s','W','p','H','n','J','E','7','j','L','5','V','G','3','g','u','M','T','K','N','P','A','w','c','F'];
+			var tr=new Array(123);
+			function enc(x) {
+				x=(x^xorn)+add;
+				var r=['B','V','1',' ',' ','4',' ','1',' ','7',' ',' '];
+				for (var i = 0; i < r.length; i++) {
+					r[s[i]]=TABLE[Math.floor(x/Math.pow(58, i))%58]
+				}
+				var ret="";
+				for (var i = 0; i < r.length; i++) {
+					ret+=r[i];
+				}
+				return ret;
+			}
+			function dec(x) {
+				for (var i = 0; i < 58; i++) {
+					tr[TABLE[i]] = i;
+				}
+				var r=0;
+				for(var i = 0; i < 6; i++) {
+					r+=(Math.pow(58, i)*tr[x[s[i]]]);
+				}
+				return (r-add)^xorn;
+			}
+			function id(x) {
+				if (typeof x=="string") return document.getElementById(x);
+				return x;
+			}
+			function exec(type) {
+				if (type=="avtobv") {
+					var x=id("av").value;
+					if(x=="") {
+						id("result").innerHTML='NO VALUE!';
+						return;
+					}
+					var av=parseInt(x);
+					id("bv").value=enc(av);
+					id("result").innerHTML=enc(av);
+				} else {
+					var bv=id("bv").value;
+					if(bv=="") {
+						id("result").innerHTML="NO VALUE!";
+						return;
+					}
+					id("av").value=dec(bv);
+					id("result").innerHTML="av"+dec(bv);
+				}
+			}
+			function clr() {
+				id("av").value="";
+				id("bv").value="";
+				id("result").innerHTML="&nbsp;";
+				return;
+			}
+		</script>
+	</head>
+	<body id="stepin">
+		<h1 style="text-align: center">Bilibili conversion between av and BV.</h1>
+		<label style="text-align: left">av number (DO NOT input the letters "av"!):</label>
+		<input type="text" class="form-control" id="av">
+		<br>
+		<input type="button" class="btn btn-block" id="submitav" value="Convert" onclick="exec('avtobv')">
+		<br><br><br>
+		<label style="text-align: left">BV string:</label>
+		<input type="text" class="form-control" id="bv">
+		<br>
+		<input type="button" class="btn btn-block" id="submitbv" value="Convert" onclick="exec('bvtoav')">
+		<hr>
+		<div style="text-align: center"><input type="button" class="btn-lg" value="Clear" onclick="clr()"></div>
+		<h1 id="result" style="text-align: center">&nbsp;</h1>
+		<a href="../menu/menu.html">Back</a>
+	</body>
+</html>
