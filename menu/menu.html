@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			@keyframes stepin {
+				from {
+					top: 0px;
+					color: #FFFFFF;
+				}
+				to {
+					top: 2vh;
+					color: black;
+				}
+			}
+			@-webkit-keyframes stepin {
+				from {
+					top: 0px;
+					color: #F8F8F8;
+				}
+				to {
+					top: 2vh;
+					color: black;
+				}
+			}
+			div {
+				position: relative;
+			}
+			body {
+				font-family: "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
+				position: relative;
+				border:  0;
+				height:  100%;
+				margin:  0;
+				padding: 2vh 20vw 5vh 20vw;
+				width:   100%;
+				background-color: #F8F8F8;
+			}
+			a {
+				text-decoration: none;
+			}
+			a:link {color:#000000;}
+			a:visited {color:#000000;}
+			a:hover {color:#0000FF;text-decoration: none}
+			a:active {color:#000000;}
+			h1 {
+				text-align: center;
+				font-size:10vh;
+				font-family: Monaco;
+			}
+			h2 {
+				text-align: center;
+				font-size:6vh;
+				line-height: 30px;
+			}
+			h3 {
+				text-align: center;
+				font-size: 3vh;
+				line-height: 10px;
+			}
+			span {
+				margin: 5px 20px 5px 20px;
+			}
+			hr {
+				color: #000000;
+			}
+			button:hover {
+				background-color: #E0E0E0;
+			}
+			button:active {
+				background-color: #D0D0D0;
+			}
+			#stepin {
+				position: relative;
+				animation: stepin 1s linear;
+				animation-fill-mode: forwards;
+				-webkit-animation: stepin 1s linear;
+				-webkit-animation-fill-mode: forwards;
+			}
+		</style>
+	</head>
+	<body id="stepin">
+		<h1>Menu/菜单</h1>
+		<hr>
+		<div>
+			<h2>返回首页</h2>
+			<h3><a href="../index.html"><button class="btn-lg btn-block">Back ></button></a></h3>
+		</div>
+		<hr>
+		<div>
+			<h2>工具</h2>
+			<h3><a href="../tools/avBV.html"><button class="btn-lg btn-block">B站av/BV号互转</button></a></h3>
+		</div>
+		<hr>
+		<div>
+			<h2>博客</h2>
+			<h3><button class="btn-lg btn-block">暂无</button></h3>
+		</div>
+	</body>
+</html>
