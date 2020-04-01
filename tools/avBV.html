@@ -38,7 +38,7 @@
 				border: 0;
 				height: 100%;
 				margin: 0;
-				padding: 3vh 25vw 5vh 25vw;
+				padding: 3vh 30vw 5vh 30vw;
 				width: 100%;
 				background-color: #F8F8F8;
 			}
@@ -129,18 +129,20 @@
 	</head>
 	<body id="stepin">
 		<h1 style="text-align: center">B站av号和BV号之间的转换</h1>
-		<label style="text-align: left">av号（只需要输入av后面的数字）：</label>
-		<input type="text" class="form-control" id="av">
+		<form>
+		<label>av号（只需要输入av后面的数字）：</label>
+		<input type="text" class="form-control" id="av" placeholder="如：170001">
 		<br>
 		<input type="button" class="btn btn-block" id="submitav" value="Convert/开始转换" onclick="exec('avtobv')">
 		<br><br><br>
-		<label style="text-align: left">BV号:</label>
-		<input type="text" class="form-control" id="bv">
+		<label>BV号:</label>
+		<input type="text" class="form-control" id="bv" placeholder="如：BV17x411w7KC">
 		<br>
 		<input type="button" class="btn btn-block" id="submitbv" value="Convert/开始转换" onclick="exec('bvtoav')">
+		<form>
 		<hr>
 		<div style="text-align: center"><input type="button" class="btn-lg" value="Clear/清除" onclick="clr()"></div>
 		<h1 id="result" style="text-align: center">&nbsp;</h1>
-		<a href="../menu/menu.html">< Go back/返回</a>
+		<a href="../menu/menu.html" class="btn">< Go back/返回</a>
 	</body>
 </html>
