@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<title>一元二次方程求解</title>
+		<style>
+			body {
+				font-family: sans-serif;
+				position: absolute;
+				border: 0;
+				height: 100%;
+				margin: 0;
+				padding: 0vh 20vw 0vh 20vw;
+				width: 100%;
+				background-color: #F8F8F8;
+			}
+			input[type="text"] {
+				text-align: right;
+				width: 70vw;
+				background-color: #F0F0F0;
+				border: 2px solid #F0F0F0;
+			}
+			input[type="text"]:hover {
+				background-color: #E0E0E0;
+			}
+			input[type="text"]:active {
+				background-color: #D0D0D0;
+			}
+			input[type="button"] {
+				background-color: #F0F0F0;
+				border: 2px solid #F0F0F0;
+			}
+			input[type="button"]:hover {
+				background-color: #E0E0E0;
+			}
+			input[type="button"]:active {
+				background-color: #D0D0D0;
+			}
+			@keyframes stepin {
+				from {
+					top: 0px;
+					color: #F8F8F8;
+				}
+				to {
+					top: 10vh;
+					color: black;
+				}
+			}
+			@-webkit-keyframes stepin {
+				from {
+					top: 0px;
+					color: #F8F8F8;
+				}
+				to {
+					top: 10vh;
+					color: black;
+				}
+			}
+			#stepin {
+				position: relative;
+				animation: stepin 1s linear;
+				animation-fill-mode: forwards;
+				-webkit-animation: stepin 1s linear;
+				-webkit-animation-fill-mode: forwards;
+			}
+		</style>
+		<script>
+			function id(x) {
+				if (typeof x=="string") return document.getElementById(x);
+				return x;
+			}
+			function calc() {
+				var eq=id("eq");
+				var res=id("result");
+				var a=id("a").value;
+				var b=id("b").value;
+				var c=id("c").value;
+				if (a=="0" || a=="" || b=="" || c=="") return;
+				a=parseInt(a);
+				b=parseInt(b);
+				c=parseInt(c);
+				eq.src="https://zhihu.com/equation?tex=x=\\frac{-("+b+")\\pm\\sqrt{("+b+")^2-4\\times ("+(a*c)+")}} {2\\times "+a+"}";
+				if (Math.pow(b,2)-4*a*c<0) {
+					res.src="https://zhihu.com/equation?tex=x_1=NaN, x_2=NaN"
+				} else {
+					var x1=(-b+Math.sqrt(Math.pow(b,2)-4*a*c))/(2*a);
+					var x2=(-b-Math.sqrt(Math.pow(b,2)-4*a*c))/(2*a);
+					res.src="https://zhihu.com/equation?tex=x_1=\\frac{"+(-b)+"%2B\\sqrt{"+(Math.pow(b,2)-(4*a*c))+"}} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-\\sqrt{"+(Math.pow(b,2)-(4*a*c))+"}} {"+2*a+"}="+x2;
+				}
+			}
+			function clr() {
+				var eq=id("eq");
+				var res=id("result");
+				eq.src="https://zhihu.com/equation?tex=x=\\frac{-b\\pm\\sqrt{b^2-4ac}} {2a}";
+				res.src="https://zhihu.com/equation?tex=x_1=?, x_2=?";
+				id("a").value="";
+				id("b").value="";
+				id("c").value="";
+			}
+		</script>
+	</head>
+	<body id="stepin">
+		<div style="text-align: center">
+			<h1>一元二次方程求解</h1>
+			<label>只支持判别式大于零的情况</label>
+			<br>
+			<form class="form-inline">
+				<input type="text" id="a" class="form-control" placeholder="此处不能为0: a">
+				<img src="https://zhihu.com/equation?tex=x^2%2B" alt="equation">
+				<input type="text" id="b" class="form-control" placeholder="b">
+				<img src="https://zhihu.com/equation?tex=x%2B" alt="equation">
+				<input type="text" id="c" class="form-control" placeholder="c">
+				<img src="https://zhihu.com/equation?tex==0" alt="equation">
+			</form>
+			<hr>
+			<img id="eq" src="https://zhihu.com/equation?tex=x=\frac{-b\pm\sqrt{b^2-4ac}} {2a}" alt="equation">
+			<br><br>
+			<input type="button" class="btn-lg btn-block" value="Calc/开始计算" onclick="calc()">
+			<hr>
+			<img id="result" src="https://zhihu.com/equation?tex=x_1=?, x_2=?" alt="equation">
+			<br><br>
+			<input type="button" class="btn-lg" value="Clear/清除" onclick="clr()">
+		</div>
+		<br>
+		<span><a href="../menu/menu.html" class="btn" style="text-align: left">< Go back/返回</a>，本网页使用了知乎的LaTeX表达式。</span>
+	</body>
+</html>
