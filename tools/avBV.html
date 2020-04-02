@@ -32,6 +32,12 @@
 				-webkit-animation: stepin 1s linear;
 				-webkit-animation-fill-mode: forwards;
 			}
+			.btn {
+				outline: none;
+			}
+			h1 {
+				text-align: center;
+			}
 			body {
 				font-family: sans-serif;
 				position: absolute;
@@ -43,6 +49,7 @@
 				background-color: #F8F8F8;
 			}
 			input[type="text"] {
+				height: 48px;
 				background-color: #F0F0F0;
 				border:2px solid #F0F0F0;
 				font-family: monospace;
@@ -54,6 +61,7 @@
 				background-color: #D0D0D0;
 			}
 			input[type="button"] {
+				outline: none;
 				font-family: monospace;
 				background-color: #F0F0F0;
 				border:2px solid;
@@ -128,23 +136,23 @@
 		</script>
 	</head>
 	<body id="stepin">
-		<h1 style="text-align: center">B站av号和BV号之间的转换</h1>
+		<h1>B站av号和BV号之间的转换</h1>
 		<form >
 			<label>av号（只需要输入av后面的数字）：</label>
 			<input type="text" class="form-control" id="av" placeholder="如：170001">
 			<br>
-			<input type="button" class="btn btn-block" id="submitav" value="Convert/开始转换" onclick="exec('avtobv')">
+			<input type="button" class="btn-lg btn-block" id="submitav" value="Convert/开始转换" onclick="exec('avtobv')">
 			<br><br><br>
 			<label>BV号:</label>
 			<input type="text" class="form-control" id="bv" placeholder="如：BV17x411w7KC">
 			<br>
-			<input type="button" class="btn btn-block" id="submitbv" value="Convert/开始转换" onclick="exec('bvtoav')">
+			<input type="button" class="btn-lg btn-block" id="submitbv" value="Convert/开始转换" onclick="exec('bvtoav')">
 		<form>
 		<hr>
 		<div style="text-align: center">
 			<input type="button" class="btn-lg" value="Clear/清除" onclick="clr()">
 		</div>
-		<h1 id="result" style="text-align: center">&nbsp;</h1>
+		<h1 id="result">&nbsp;</h1>
 		<a href="../menu/menu.html" class="btn">< Go back/返回</a>
 	</body>
 </html>
