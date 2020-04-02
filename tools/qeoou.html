@@ -17,7 +17,6 @@
 			}
 			input[type="text"] {
 				text-align: right;
-				width: 70vw;
 				background-color: #F0F0F0;
 				border: 2px solid #F0F0F0;
 			}
@@ -77,17 +76,37 @@
 				var a=id("a").value;
 				var b=id("b").value;
 				var c=id("c").value;
-				if (a=="0" || a=="" || b=="" || c=="") return;
+				if (a=="0"||a==""||b==""||c=="") return;
 				a=parseInt(a);
 				b=parseInt(b);
 				c=parseInt(c);
 				eq.src="https://zhihu.com/equation?tex=x=\\frac{-("+b+")\\pm\\sqrt{("+b+")^2-4\\times ("+(a*c)+")}} {2\\times "+a+"}";
+				var dlt=Math.pow(b,2)-4*a*c;
+				var rtdlt=Math.sqrt(dlt);
 				if (Math.pow(b,2)-4*a*c<0) {
-					res.src="https://zhihu.com/equation?tex=x_1=NaN, x_2=NaN"
+					res.src="https://zhihu.com/equation?tex=x_1=NaN, x_2=NaN";
 				} else {
-					var x1=(-b+Math.sqrt(Math.pow(b,2)-4*a*c))/(2*a);
-					var x2=(-b-Math.sqrt(Math.pow(b,2)-4*a*c))/(2*a);
-					res.src="https://zhihu.com/equation?tex=x_1=\\frac{"+(-b)+"%2B\\sqrt{"+(Math.pow(b,2)-(4*a*c))+"}} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-\\sqrt{"+(Math.pow(b,2)-(4*a*c))+"}} {"+2*a+"}="+x2;
+					var x1=(-b+rtdlt)/(2*a);
+					var x2=(-b-rtdlt)/(2*a);
+					var k=1;
+					var tmp=dlt;
+					var i=1;
+					while (i<=Math.sqrt(tmp)) {
+						i++;
+						if ((tmp%Math.pow(i,2))==0) {
+							tmp/=Math.pow(i,2);
+							k*=i;
+							i=1;
+						}
+					}
+					
+					if (k==1) {
+						res.src="https://zhihu.com/equation?tex=x_1=\\frac{"+(-b)+"%2B\\sqrt{"+tmp+"}} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-\\sqrt{"+tmp+"}} {"+2*a+"}="+x2;
+					} else if (tmp==1) {
+						res.src="https://zhihu.com/equation?tex=x_1=\\frac{"+(-b)+"%2B"+k+"} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-"+k+"} {"+2*a+"}="+x2;
+					} else {
+						res.src="https://zhihu.com/equation?tex=x_1=\\frac{"+(-b)+"%2B"+k+"\\sqrt{"+tmp+"}} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-"+k+"\\sqrt{"+tmp+"}} {"+2*a+"}="+x2;
+					}
 				}
 			}
 			function clr() {
@@ -124,6 +143,6 @@
 			<input type="button" class="btn-lg" value="Clear/清除" onclick="clr()">
 		</div>
 		<br>
-		<span><a href="../menu/menu.html" class="btn" style="text-align: left">< Go back/返回</a>，本网页使用了知乎的LaTeX表达式。</span>
+		<span><a href="../menu/menu.html" class="btn" style="text-align: left">< Go back/返回</a>，本网页使用了知乎的LaTeX表达式，结果的出现速度由连接知乎的速度而定。</span>
 	</body>
 </html>
