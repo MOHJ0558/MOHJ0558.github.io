@@ -37,13 +37,16 @@
 			input[type="button"]:active {
 				background-color: #D0D0D0;
 			}
+			#fixed {
+				height: 30px;
+			}
 			@keyframes stepin {
 				from {
 					top: 0px;
 					color: #F8F8F8;
 				}
 				to {
-					top: 10vh;
+					top: 8vh;
 					color: black;
 				}
 			}
@@ -53,7 +56,7 @@
 					color: #F8F8F8;
 				}
 				to {
-					top: 10vh;
+					top: 8vh;
 					color: black;
 				}
 			}
@@ -82,12 +85,44 @@
 				c=parseInt(c);
 				eq.src="https://zhihu.com/equation?tex=x=\\frac{-("+b+")\\pm\\sqrt{("+b+")^2-4\\times ("+(a*c)+")}} {2\\times "+a+"}";
 				var dlt=Math.pow(b,2)-4*a*c;
-				var rtdlt=Math.sqrt(dlt);
-				if (Math.pow(b,2)-4*a*c<0) {
-					res.src="https://zhihu.com/equation?tex=x_1=NaN, x_2=NaN";
+				if (dlt<0) {
+					var rtdlt=Math.sqrt(-dlt);
+					var xr=-b/(2*a);
+					var xi1, xi2;
+					if (parseInt(rtdlt)==rtdlt) {
+						xi1=((0+rtdlt)/(2*a));
+						xi2=((0-rtdlt)/(2*a));
+					} else {
+						xi1=((0+rtdlt)/(2*a)).toFixed(parseInt(id(fixed).value));
+						xi2=((0-rtdlt)/(2*a)).toFixed(parseInt(id(fixed).value));
+					}
+					var k=1;
+					var tmp=0-dlt;
+					var i=1;
+					while (i<=Math.sqrt(tmp)) {
+						i++;
+						if ((tmp%Math.pow(i,2))==0) {
+							tmp/=Math.pow(i,2);
+							k*=i;
+							i=1;
+						}
+					}
+					if (k==1) {
+						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"<0,\\ x_1=\\frac{"+(-b)+"%2B\\sqrt{"+tmp+"}\\, i} {"+2*a+"}="+xr+"%2B"+xi1+"i,\\ x_2=\\frac{"+(-b)+"-\\sqrt{"+tmp+"}\\, i} {"+2*a+"}="+xr+xi2+"i";
+					} else if (tmp==1) {
+						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"<0,\\ x_1=\\frac{"+(-b)+"%2B"+k+"\\, i} {"+2*a+"}="+xr+"%2B"+xi1+"i,\\ x_2=\\frac{"+(-b)+"-"+k+"\\, i} {"+2*a+"}="+xr+xi2+"i";
+					} else {
+						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"<0,\\ x_1=\\frac{"+(-b)+"%2B"+k+"\\sqrt{"+tmp+"}\\, i} {"+2*a+"}="+xr+"%2B"+xi1+"i,\\ x_2=\\frac{"+(-b)+"-"+k+"\\sqrt{"+tmp+"}\\, i} {"+2*a+"}="+xr+xi2+"i";
+					}
 				} else {
-					var x1=(-b+rtdlt)/(2*a);
-					var x2=(-b-rtdlt)/(2*a);
+					var rtdlt=Math.sqrt(dlt);
+					if (parseInt(rtdlt)==rtdlt) {
+						var x1=((-b+rtdlt)/(2*a));
+						var x2=((-b-rtdlt)/(2*a));
+					} else {
+						var x1=((-b+rtdlt)/(2*a)).toFixed(parseInt(id(fixed).value));
+						var x2=((-b-rtdlt)/(2*a)).toFixed(parseInt(id(fixed).value));
+					}
 					var k=1;
 					var tmp=dlt;
 					var i=1;
@@ -99,13 +134,12 @@
 							i=1;
 						}
 					}
-					
 					if (k==1) {
-						res.src="https://zhihu.com/equation?tex=x_1=\\frac{"+(-b)+"%2B\\sqrt{"+tmp+"}} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-\\sqrt{"+tmp+"}} {"+2*a+"}="+x2;
+						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+">0,\\ x_1=\\frac{"+(-b)+"%2B\\sqrt{"+tmp+"}} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-\\sqrt{"+tmp+"}} {"+2*a+"}="+x2;
 					} else if (tmp==1) {
-						res.src="https://zhihu.com/equation?tex=x_1=\\frac{"+(-b)+"%2B"+k+"} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-"+k+"} {"+2*a+"}="+x2;
+						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+">0,\\ x_1=\\frac{"+(-b)+"%2B"+k+"} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-"+k+"} {"+2*a+"}="+x2;
 					} else {
-						res.src="https://zhihu.com/equation?tex=x_1=\\frac{"+(-b)+"%2B"+k+"\\sqrt{"+tmp+"}} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-"+k+"\\sqrt{"+tmp+"}} {"+2*a+"}="+x2;
+						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+">0,\\ x_1=\\frac{"+(-b)+"%2B"+k+"\\sqrt{"+tmp+"}} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-"+k+"\\sqrt{"+tmp+"}} {"+2*a+"}="+x2;
 					}
 				}
 			}
@@ -123,7 +157,7 @@
 	<body id="stepin">
 		<div style="text-align: center">
 			<h1>一元二次方程求解</h1>
-			<label>只支持判别式大于零的情况</label>
+			<label>Only supports cases where a, b, and c are integers./只支持a b c为整数的情况</label>
 			<br>
 			<form class="form-inline">
 				<input type="text" id="a" class="form-control" placeholder="此处不能为0: a">
@@ -132,17 +166,19 @@
 				<img src="https://zhihu.com/equation?tex=x%2B" alt="equation">
 				<input type="text" id="c" class="form-control" placeholder="c">
 				<img src="https://zhihu.com/equation?tex==0" alt="equation">
+				<br><br>
+				结果保留<input type="text" id="fixed" class="form-control" placeholder="保留小数" value=3>位小数。
 			</form>
 			<hr>
 			<img id="eq" src="https://zhihu.com/equation?tex=x=\frac{-b\pm\sqrt{b^2-4ac}} {2a}" alt="equation">
 			<br><br>
 			<input type="button" class="btn-lg btn-block" value="Calc/开始计算" onclick="calc()">
 			<hr>
-			<img id="result" src="https://zhihu.com/equation?tex=x_1=?, x_2=?" alt="equation">
+			<img id="result" src="https://zhihu.com/equation?tex=x_1=?,\ x_2=?" alt="equation">
 			<br><br>
 			<input type="button" class="btn-lg" value="Clear/清除" onclick="clr()">
 		</div>
 		<br>
-		<span><a href="../menu/menu.html" class="btn" style="text-align: left">< Go back/返回</a>，本网页使用了知乎的LaTeX表达式，结果的出现速度由连接知乎的速度而定。</span>
+		<span><a href="../menu/menu.html" class="btn" style="text-align: left">< Go back/返回</a>，本网页使用了知乎的LaTeX表达式，结果的出现速度由数的大小和连接知乎的速度而定。</span>
 	</body>
 </html>
