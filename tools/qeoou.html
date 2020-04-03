@@ -15,30 +15,46 @@
 				width: 100%;
 				background-color: #F8F8F8;
 			}
+			h1 {
+				transition: letter-spacing .5s;
+				-webkit-transition: letter-spacing .5s;
+			}
+			h1:hover {
+				letter-spacing: 10px;
+			}
 			input[type="text"] {
+				transition: background-color .2s;
+				-webkit-transition: background-color .2s;
 				text-align: right;
 				background-color: #F0F0F0;
 				border: 2px solid #F0F0F0;
 			}
-			input[type="text"]:hover {
-				background-color: #E0E0E0;
-			}
-			input[type="text"]:active {
-				background-color: #D0D0D0;
-			}
 			input[type="button"] {
+				transition: background-color .2s;
+				-webkit-transition: background-color .2s;
 				outline: none;
 				background-color: #F0F0F0;
 				border: 2px solid #F0F0F0;
 			}
-			input[type="button"]:hover {
+			input:hover {
 				background-color: #E0E0E0;
 			}
-			input[type="button"]:active {
+			input:active {
 				background-color: #D0D0D0;
+			}
+			img {
+				transition: src .2s;
+				-webkit-transition: src .2s;
 			}
 			#fixed {
 				height: 30px;
+			}
+			#stepin {
+				position: relative;
+				animation: stepin 1s linear;
+				animation-fill-mode: forwards;
+				-webkit-animation: stepin 1s linear;
+				-webkit-animation-fill-mode: forwards;
 			}
 			@keyframes stepin {
 				from {
@@ -59,13 +75,6 @@
 					top: 8vh;
 					color: black;
 				}
-			}
-			#stepin {
-				position: relative;
-				animation: stepin 1s linear;
-				animation-fill-mode: forwards;
-				-webkit-animation: stepin 1s linear;
-				-webkit-animation-fill-mode: forwards;
 			}
 		</style>
 		<script>
@@ -88,7 +97,7 @@
 				if (dlt<0) {
 					var rtdlt=Math.sqrt(-dlt);
 					var xi1, xi2, xr;
-					if (parseInt(rtdlt)==rtdlt) {
+					if (parseInt(-b/(2*a))==-b/(2*a)) {
 						xr=-b/(2*a);
 					} else {
 						xr=(-b/(2*a)).toFixed(parseInt(id(fixed).value));
