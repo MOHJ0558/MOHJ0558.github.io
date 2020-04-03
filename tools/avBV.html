@@ -36,7 +36,12 @@
 				outline: none;
 			}
 			h1 {
+				transition: letter-spacing .5s;
+				-webkit-transition: letter-spacing .5s;
 				text-align: center;
+			}
+			h1:hover {
+				letter-spacing: 10px;
 			}
 			body {
 				font-family: sans-serif;
@@ -49,18 +54,16 @@
 				background-color: #F8F8F8;
 			}
 			input[type="text"] {
+				transition: background-color .2s;
+				-webkit-transition: background-color .2s;
 				height: 48px;
 				background-color: #F0F0F0;
 				border:2px solid #F0F0F0;
 				font-family: monospace;
 			}
-			input[type="text"]:hover {
-				background-color: #E0E0E0;
-			}
-			input[type="text"]:active {
-				background-color: #D0D0D0;
-			}
 			input[type="button"] {
+				transition: background-color .2s;
+				-webkit-transition: background-color .2s;
 				outline: none;
 				font-family: monospace;
 				background-color: #F0F0F0;
@@ -68,10 +71,10 @@
 				border-color: #F0F0F0;
 				border-radius:5px;
 			}
-			input[type="button"]:hover {
+			input:hover {
 				background-color: #E0E0E0;
 			}
-			input[type="button"]:active {
+			input:active {
 				background-color: #D0D0D0;
 			}
 		</style>
@@ -136,7 +139,7 @@
 		</script>
 	</head>
 	<body id="stepin">
-		<h1>B站av号和BV号之间的转换</h1>
+		<h1>B站av/BV号互相转换</h1>
 		<form >
 			<label>av号（只需要输入av后面的数字）：</label>
 			<input type="text" class="form-control" id="av" placeholder="如：170001">
