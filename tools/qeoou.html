@@ -87,8 +87,12 @@
 				var dlt=Math.pow(b,2)-4*a*c;
 				if (dlt<0) {
 					var rtdlt=Math.sqrt(-dlt);
-					var xr=-b/(2*a);
-					var xi1, xi2;
+					var xi1, xi2, xr;
+					if (parseInt(rtdlt)==rtdlt) {
+						xr=-b/(2*a);
+					} else {
+						xr=(-b/(2*a)).toFixed(parseInt(id(fixed).value));
+					}
 					if (parseInt(rtdlt)==rtdlt) {
 						xi1=((0+rtdlt)/(2*a));
 						xi2=((0-rtdlt)/(2*a));
