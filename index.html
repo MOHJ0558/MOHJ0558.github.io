@@ -14,7 +14,6 @@
 				width: 100%;
 				background-color: #F8F8F8;
 			}
-			
 			.move {
 				position: absolute;
 				width: 10vw;
@@ -25,7 +24,6 @@
 				-webkit-animation: move 5s ease-in-out;
 				-webkit-animation-fill-mode: forwards;
 			}
-
 			.stepin {
 				position: relative;
 				animation: stepin 5s ease-out;
@@ -33,27 +31,27 @@
 				-webkit-animation: stepin 5s ease-out;
 				-webkit-animation-fill-mode: forwards;
 			}
-
 			h1 {
 				text-align: center;
 				font-size: 10vh;
 				font-family: Monaco, Courier, monospace;
 			}
-
+			h2 {
+				text-align: center;
+				font-size: 6vh;
+				font-family: monospace;
+			}
 			.mouse:hover {
 				color: #404040;
 			}
-
 			.mouse:active {
 				color: #808080;
 			}
-
 			h6 {
 				text-align: right;
 				font-size: 3vh;
 				font-family: Ubuntu,  "Helvetica Neue", Arial, sans-serif;
 			}
-
 			@keyframes move {
 				0%   {top: 0px; left: 0px; background-color: red;}
 				25%  {top: 0px; left: 92.5vw; background-color: yellow; width: 7.5vw; height: 7.5vh}
@@ -61,18 +59,16 @@
 				75%  {top: 97.5vh; left: 0px; background-color: purple; width: 2.5vw; height: 2.5vh}
 				100% {top: 0px; left: 0px; background-color: red; width: 0vw; height: 0vh}
 			}
-
 			@keyframes stepin {
 				from {
 					top: 0px;
 					color: #F8F8F8;
 				}
 				to {
-					top: 35vh;
+					top: 30vh;
 					color: black;
 				}
 			}
-
 			@-webkit-keyframes move {
 				0%   {top: 0px; left: 0px; background-color: red;}
 				25%  {top: 0px; left: 92.5vw; background-color: yellow; width: 7.5vw; height: 7.5vh}
@@ -80,27 +76,44 @@
 				75%  {top: 97.5vh; left: 0px; background-color: purple; width: 2.5vw; height: 2.5vh}
 				100% {top: 0px; left: 0px; background-color: red; width: 0vw; height: 0vh}
 			}
-
 			@-webkit-keyframes stepin {
 				from {
 					top: 0px;
 					color: #F8F8F8;
 				}
 				to {
-					top: 35vh;
+					top: 30vh;
 					color: black;
 				}
 			}
-
-
 		</style>
 	</head>
 	<body>
 		<script src="https://cdn.staticfile.org/canvas-nest.js/2.0.4/canvas-nest.js"></script>
 		<div class="stepin">
 			<h1><span class="mouse">Hello, world.</span></h1>
+			<h2 id="time"></h2>
 			<h6 class="stepin">Powered by MOHJ0558.<a href="./menu/menu.html" class="btn">Get started/开始 ></a></h6>
 		</div>
 		<div class="move"></div>
+		<script>
+			function $(s) {
+				return document.querySelector(s);
+			}
+			function pad(str, pad) {
+				return (pad + str).slice(-pad.length - 1);
+			}
+			(function dotime () {
+				var date  = new Date();
+				var hours = pad(date.getHours(),   '0');
+				var mins  = pad(date.getMinutes(), '0');
+				var secs  = pad(date.getSeconds(), '0');
+				var color = '#' + hours + mins + secs;
+				$('#time').innerHTML  = [hours, mins, secs].join(' : ');
+				setTimeout(function () {
+					dotime();
+				}, 100);
+			}());
+		</script>
 	</body>
 </html>
