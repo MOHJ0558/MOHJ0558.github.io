@@ -26,11 +26,11 @@
 			}
 			body {
 				font-family: "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
-				position: relative;
+				position: absolute;
 				border:  0;
-				height:  100%;
 				margin:  0;
-				padding: 2vh 20vw 2vh 20vw;
+				padding: 2vh 10vw 2vh 10vw;
+				height:  100%;
 				width:   100%;
 				background-color: #F8F8F8;
 			}
@@ -39,28 +39,27 @@
 			}
 			a:link {color:#000000;}
 			a:visited {color:#000000;}
-			a:hover {color:#0000FF;text-decoration: none}
+			a:hover {color: #000080;text-decoration: none;}
 			a:active {color:#000000;}
-			h1, h2, h3 {
+			h1, h2 {
 				text-align: center;
 			}
-			button {
-				transition: background-color .2s;
-				-webkit-transition: background-color .2s;
-				outline: none;
+			h1 {
+				transition: letter-spacing .5s;
 			}
-			button:hover {
-				background-color: #E0E0E0;
-			}
-			button:active {
-				background-color: #D0D0D0;
+			h1:hover {
+				letter-spacing: 10px;
 			}
 			#stepin {
-				position: relative;
 				animation: stepin 1s linear;
 				animation-fill-mode: forwards;
 				-webkit-animation: stepin 1s linear;
 				-webkit-animation-fill-mode: forwards;
+			}
+			#back {
+				position: fixed;
+				left: 20px;
+				top: 20px;
 			}
 		</style>
 	</head>
@@ -69,15 +68,27 @@
 		<hr>
 		<div>
 			<h2>小工具</h2>
-			<h3><a href="../tools/avBV.html"><button class="btn-lg btn-block">B站av/BV号互转</button></a></h3>
-			<h3><a href="../tools/qeoou.html"><button class="btn-lg btn-block">一元二次方程求解</button></a></h3>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<a href="../tools/avBV.html">
+							<blockquote>
+								<h3>B站av/BV号互转</h3>
+								<h6>可以将B站的BV号转成av号。</h6>
+							</blockquote>
+						</a>
+					</div>
+					<div class="col-md-6">
+						<a href="../tools/qeoou.html">
+							<blockquote>
+								<h3>一元二次方程求解</h3>
+								<h6>求解一元二次方程，支持虚数。<h6>
+							</blockquote>
+						</a>
+					</div>
+				</div>
+			</div>
 		</div>
-		<hr>
-		<div>
-			<h2>博客</h2>
-			<h3><button class="btn-lg btn-block">暂无</button></h3>
-		</div>
-		<hr>
-		<a href="../index.html" class="btn">< Go back/返回</a>
+		<div id="back"><a href="../index.html" class="btn">< Go back/返回</a></div>
 	</body>
 </html>
