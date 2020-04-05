@@ -15,6 +15,7 @@
 				height:  100%;
 				width:   100%;
 				background-color: #F8F8F8;
+				color: #000000;
 			}
 			a {text-decoration: none;}
 			a:link {color:#000000;text-decoration: none;}
@@ -29,27 +30,33 @@
 				left: 20px;
 				top: 20px;
 			}
-			.row a div {
+			.row a .col-md-4 {
 				outline: none;
-				margin: 10px 0px;
+				height: 150px;
+				margin: 5px 0px;
 				padding: 0;
 				transition: all .3s;
-				border-radius: 0px;
+				border: 0;
+				border-radius: 20px;
 			}
-			.row a div:hover{
-				border-radius: 50px;
-				transform: translateY(-10px);
-				box-shadow: 10px 10px 20px 5px rgba(0,0,0,.25);
+			.row a .col-md-4:hover {
+				transform: scale(1.1);
+				box-shadow: 0px 0px 50px 10px rgba(0,0,0,.25);
 				background-color: #FCFCFC;
 				color: #444444;
 			}
-			.row a div:active{
+			.row a .col-md-4:active {
 				transition: all .1s;
-				transform: translateY(0px);
+				transform: scale(1);
 				box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
 				background-color: #F8F8F8;
 				color: #000000;
-				border-radius: 10px;
+			}
+			.center {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
 			}
 		</style>
 	</head>
@@ -61,15 +68,19 @@
 			<div class="container">
 				<div class="row">
 					<a href="../tools/avBV.html">
-						<div class="col-md-6">
-							<h3>B站av/BV号互转</h3>
-							<h6>可以将B站的BV号转成av号。</h6>
+						<div class="col-md-4">
+							<div class="center">
+								<h3>B站av/BV号互转</h3>
+								<h6>可以将B站的BV号转成av号。</h6>
+							</div>
 						</div>
 					</a>
 					<a href="../tools/qeoou.html">
-						<div class="col-md-6">
-							<h3>一元二次方程求解</h3>
-							<h6>求解一元二次方程，支持虚数。<h6>
+						<div class="col-md-4">
+							<div class="center">
+								<h3>一元二次方程求解</h3>
+								<h6>求解一元二次方程，支持虚数，但不支持小数或分数。<h6>
+							</div>
 						</div>
 					</a>
 				</div>
