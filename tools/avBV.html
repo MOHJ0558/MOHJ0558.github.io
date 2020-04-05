@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 		<title>av/BV转换</title>
 		<style>
 			@keyframes stepin {
@@ -143,22 +144,18 @@
 	</head>
 	<body id="stepin">
 		<h1>B站av/BV号互相转换</h1>
-		<form >
-			<label>av号（只需要输入av后面的数字）：</label>
-			<input type="text" class="form-control" id="av" placeholder="如：170001">
-			<br>
-			<input type="button" class="btn-lg btn-block" id="submitav" value="Convert/开始转换" onclick="exec('avtobv')">
+		<form>
+			av号转BV号（只需要输入av后面的数字），按回车键执行：
+			<input type="text" class="form-control" id="av" placeholder="如：170001" onkeydown="if(event.keyCode==13){exec('avtobv');return false;}">
 			<br><br><br>
-			<label>BV号:</label>
-			<input type="text" class="form-control" id="bv" placeholder="如：BV17x411w7KC">
-			<br>
-			<input type="button" class="btn-lg btn-block" id="submitbv" value="Convert/开始转换" onclick="exec('bvtoav')">
+			BV号转av号，按回车键执行:
+			<input type="text" class="form-control" id="bv" placeholder="如：BV17x411w7KC" onkeydown="if(event.keyCode==13){exec('bvtoav');return false;}">
 		<form>
 		<hr>
 		<div style="text-align: center">
 			<input type="button" class="btn-lg" value="Clear/清除" onclick="clr()">
 		</div>
 		<h2 id="result">&nbsp;</h2>
-		<a href="../menu/menu.html" class="btn">< Go back/返回</a>
+		<a href="../menu/menu.html" class="btn"><i class="fa fa-angle-left"></i>&nbsp;Go back/返回</a>
 	</body>
 </html>
