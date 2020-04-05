@@ -2,93 +2,79 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<title>目录</title>
 		<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 		<style>
-			@keyframes stepin {
-				from {
-					top: 0px;
-					color: #FFFFFF;
-				}
-				to {
-					top: 2vh;
-					color: black;
-				}
-			}
-			@-webkit-keyframes stepin {
-				from {
-					top: 0px;
-					color: #FFFFFF;
-				}
-				to {
-					top: 2vh;
-					color: black;
-				}
-			}
 			body {
-				font-family: "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
+				font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", sans-serif;
 				position: absolute;
 				border:  0;
 				margin:  0;
-				padding: 2vh 10vw 2vh 10vw;
+				padding: 2vh 5vw;
 				height:  100%;
 				width:   100%;
 				background-color: #F8F8F8;
 			}
-			a {
-				text-decoration: none;
-			}
-			a:link {color:#000000;}
-			a:visited {color:#000000;}
-			a:hover {color: #000080;text-decoration: none;}
-			a:active {color:#000000;}
-			h1, h2 {
-				text-align: center;
-			}
-			h1 {
-				transition: letter-spacing .5s;
-			}
-			h1:hover {
-				letter-spacing: 10px;
-			}
-			#stepin {
-				animation: stepin 1s linear;
-				animation-fill-mode: forwards;
-				-webkit-animation: stepin 1s linear;
-				-webkit-animation-fill-mode: forwards;
-			}
+			a {text-decoration: none;}
+			a:link {color:#000000;text-decoration: none;}
+			a:visited {color:#000000;text-decoration: none;}
+			a:hover {color: #000000;text-decoration: none;}
+			a:active {color:#000000;text-decoration: none;}
+			h1,h2,h3,h4,h5,h6 {text-align: center;}
+			.ltspc {transition: letter-spacing .5s;}
+			.ltspc:hover {letter-spacing: 10px;}
 			#back {
 				position: fixed;
 				left: 20px;
 				top: 20px;
 			}
+			.row a div {
+				outline: none;
+				margin: 10px 0px;
+				padding: 0;
+				transition: all .3s;
+				border-radius: 0px;
+			}
+			.row a div:hover{
+				border-radius: 50px;
+				transform: translateY(-10px);
+				box-shadow: 10px 10px 20px 5px rgba(0,0,0,.25);
+				background-color: #FCFCFC;
+				color: #444444;
+			}
+			.row a div:active{
+				transition: all .1s;
+				transform: translateY(0px);
+				box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+				background-color: #F8F8F8;
+				color: #000000;
+				border-radius: 10px;
+			}
 		</style>
 	</head>
-	<body id="stepin">
-		<h1>Menu/菜单</h1>
+	<body>
+		<h1><span class="ltspc">Menu/目录</span></h1>
 		<hr>
 		<div>
-			<h2>小工具</h2>
+			<h2>工具</h2>
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6">
-						<a href="../tools/avBV.html">
-							<blockquote>
-								<h3>B站av/BV号互转</h3>
-								<h6>可以将B站的BV号转成av号。</h6>
-							</blockquote>
-						</a>
-					</div>
-					<div class="col-md-6">
-						<a href="../tools/qeoou.html">
-							<blockquote>
-								<h3>一元二次方程求解</h3>
-								<h6>求解一元二次方程，支持虚数。<h6>
-							</blockquote>
-						</a>
-					</div>
+					<a href="../tools/avBV.html">
+						<div class="col-md-6">
+							<h3>B站av/BV号互转</h3>
+							<h6>可以将B站的BV号转成av号。</h6>
+						</div>
+					</a>
+					<a href="../tools/qeoou.html">
+						<div class="col-md-6">
+							<h3>一元二次方程求解</h3>
+							<h6>求解一元二次方程，支持虚数。<h6>
+						</div>
+					</a>
 				</div>
 			</div>
 		</div>
-		<div id="back"><a href="../index.html" class="btn">< Go back/返回</a></div>
+		<div id="back"><a href="../index.html"><i class="fa fa-angle-left"></i>&nbsp;Go back/返回</a></div>
 	</body>
 </html>
