@@ -7,12 +7,12 @@
 		<title>一元二次方程求解</title>
 		<style>
 			body {
-				font-family: sans-serif;
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 				position: absolute;
 				border: 0;
 				height: 100%;
 				margin: 0;
-				padding: 0vh 20vw 0vh 20vw;
+				padding: 0 5px;
 				width: 100%;
 				background-color: #F8F8F8;
 			}
@@ -23,25 +23,35 @@
 				letter-spacing: 10px;
 			}
 			input[type="text"] {
-				transition: background-color .2s;
-				text-align: right;
-				background-color: #F0F0F0;
-				border: 2px solid #F0F0F0;
-			}
-			input[type="button"] {
-				transition: background-color .2s;
 				outline: none;
-				background-color: #F0F0F0;
-				border: 2px solid #F0F0F0;
+				transition: all .5s;
+				text-align: right;
+				border: 0;
+				border-bottom: 1px solid rgba(0,0,0,0);
+				border-radius: 0;
+				background-color: rgba(0,0,0,0);
 			}
-			input:hover {
-				background-color: #E0E0E0;
+			input[type="text"]:hover {
+				border-bottom: 1px solid rgba(0,0,0,.25);
 			}
-			input:active {
-				transition: background-color 0s;
-				background-color: #D0D0D0;
+			input[type="text"]:focus {
+				border-bottom: 1px solid rgba(0,0,0,1);
 			}
-			#fixed {
+			button {
+				width: 300px;
+				transition: all .2s;
+				outline: none;
+				border: 0;
+				border-bottom: 1px solid rgba(0,0,0,0);
+				background-color: rgba(0,0,0,0);
+			}
+			button:hover {
+				transform: scale(1.1);
+			}
+			button:active {
+				transform: scale(1);
+			}
+			#fixednum {
 				height: 30px;
 			}
 			#stepin {
@@ -49,10 +59,15 @@
 				animation: stepin 1s linear;
 				animation-fill-mode: forwards;
 			}
+			#tip {
+				position: fixed;
+				left: 10px;
+				bottom: 20px;
+			}
 			@keyframes stepin {
 				from {
 					top: 0px;
-					color: #F8F8F8;
+					color: rgba(0,0,0,0);
 				}
 				to {
 					top: 8vh;
@@ -83,14 +98,14 @@
 					if (parseInt(-b/(2*a))==-b/(2*a)) {
 						xr=-b/(2*a);
 					} else {
-						xr=(-b/(2*a)).toFixed(parseInt(id(fixed).value));
+						xr=(-b/(2*a)).toFixed(parseInt(id("fixednum").value));
 					}
 					if (parseInt(rtdlt)==rtdlt) {
 						xi1=((0+rtdlt)/(2*a));
 						xi2=((0-rtdlt)/(2*a));
 					} else {
-						xi1=((0+rtdlt)/(2*a)).toFixed(parseInt(id(fixed).value));
-						xi2=((0-rtdlt)/(2*a)).toFixed(parseInt(id(fixed).value));
+						xi1=((0+rtdlt)/(2*a)).toFixed(parseInt(id("fixednum").value));
+						xi2=((0-rtdlt)/(2*a)).toFixed(parseInt(id("fixednum").value));
 					}
 					var k=1;
 					var tmp=0-dlt;
@@ -116,8 +131,8 @@
 						var x1=((-b+rtdlt)/(2*a));
 						var x2=((-b-rtdlt)/(2*a));
 					} else {
-						var x1=((-b+rtdlt)/(2*a)).toFixed(parseInt(id(fixed).value));
-						var x2=((-b-rtdlt)/(2*a)).toFixed(parseInt(id(fixed).value));
+						var x1=((-b+rtdlt)/(2*a)).toFixed(parseInt(id("fixednum").value));
+						var x2=((-b-rtdlt)/(2*a)).toFixed(parseInt(id("fixednum").value));
 					}
 					var k=1;
 					var tmp=dlt;
@@ -156,25 +171,32 @@
 			<label>Only supports cases where a, b, and c are integers./只支持a b c为整数的情况</label>
 			<br>
 			<form class="form-inline">
-				<input type="text" id="a" class="form-control" placeholder="此处不能为0: a" onkeydown="if(event.keyCode==13){calc();return false;}">
+				<input type="text" id="a" placeholder="此处不能为0: a" onkeydown="if(event.keyCode==13){calc();return false;}">
 				<img src="https://zhihu.com/equation?tex=x^2%2B" alt="equation">
-				<input type="text" id="b" class="form-control" placeholder="b" onkeydown="if(event.keyCode==13){calc();return false;}">
+				<input type="text" id="b" placeholder="b" onkeydown="if(event.keyCode==13){calc();return false;}">
 				<img src="https://zhihu.com/equation?tex=x%2B" alt="equation">
-				<input type="text" id="c" class="form-control" placeholder="c" onkeydown="if(event.keyCode==13){calc();return false;}">
+				<input type="text" id="c" placeholder="c" onkeydown="if(event.keyCode==13){calc();return false;}">
 				<img src="https://zhihu.com/equation?tex==0" alt="equation">
 				<br><br>
-				结果保留<input type="text" id="fixed" class="form-control" placeholder="保留小数" value=3  onkeydown="if(event.keyCode==13){calc();return false;}">位小数。
+				结果保留<input type="text" id="fixednum" placeholder="0" value=3  onkeydown="if(event.keyCode==13){calc();return false;}">位小数。
 			</form>
-			<hr>
+			<br>
 			<img id="eq" src="https://zhihu.com/equation?tex=x=\frac{-b\pm\sqrt{b^2-4ac}} {2a}" alt="equation">
 			<br><br>
-			<input type="button" class="btn-lg btn-block" value="Calc, or press enter./开始计算，或按回车键" onclick="calc()">
-			<hr>
 			<img id="result" src="https://zhihu.com/equation?tex=x_1=?,\ x_2=?" alt="equation">
 			<br><br>
-			<input type="button" class="btn-lg" value="Clear/清除" onclick="clr()">
+			<button class="btn-lg" onclick="calc()"><i class="fa fa-calculator"></i>&nbsp;Calc/开始计算</button>
+			<button class="btn-lg" value="Clear/清除" onclick="clr()"><i class="fa fa-times"></i>&nbsp;Clear/清除</button>
 		</div>
 		<br>
-		<span><a href="../menu/menu.html" class="btn" style="text-align: left"><i class="fa fa-angle-left"></i>&nbsp;Go back/返回</a>，本网页使用了知乎的LaTeX表达式，结果的出现速度由数的大小和连接知乎的速度而定。</span>
+		<div id="tip"><a href="../menu/menu.html" class="btn" style="text-align: left"><i class="fa fa-angle-left"></i>&nbsp;Go back/返回</a>，点击开始计算按钮或在任意位置按<kbd>Enter</kbd>键计算。本网页使用了知乎的<img src="https://zhihu.com/equation?tex=\LaTeX">表达式，结果的出现速度由数的大小和连接知乎的速度而定。</div>
+		<script>
+			document.onkeydown=function(event){
+			if(event.keyCode==13) {
+				calc();
+				return false;
+			}
+		};
+		</script>
 	</body>
 </html>
