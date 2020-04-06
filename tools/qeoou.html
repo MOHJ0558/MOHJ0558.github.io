@@ -11,11 +11,15 @@
 				font-family: "Open Sans", "Noto Sans SC", sans-serif;
 				position: absolute;
 				border: 0;
-				height: 100%;
+				height: 100vh;
+				width: 100vw;
 				margin: 0;
-				padding: 0 5px;
-				width: 100%;
+				padding: 5px;
 				background-color: #F8F8F8;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
 			}
 			h1 {
 				transition: letter-spacing .5s;
@@ -28,12 +32,12 @@
 				transition: all .5s;
 				text-align: right;
 				border: 0;
-				border-bottom: 1px solid rgba(0,0,0,0);
+				border-bottom: 1px solid rgba(0,0,0,.25);
 				border-radius: 0;
 				background-color: rgba(0,0,0,0);
 			}
 			input[type="text"]:hover {
-				border-bottom: 1px solid rgba(0,0,0,.25);
+				border-bottom: 1px solid rgba(0,0,0,.5);
 			}
 			input[type="text"]:focus {
 				border-bottom: 1px solid rgba(0,0,0,1);
@@ -52,6 +56,11 @@
 			button:active {
 				transform: scale(1);
 			}
+			div.form-inline {
+				border-radius: 10px;
+				padding: 50px;
+				box-shadow: 10px 10px 10px 10px rgba(0,0,0,.25);
+			}
 			#fixednum {
 				height: 30px;
 			}
@@ -67,11 +76,9 @@
 			}
 			@keyframes stepin {
 				from {
-					top: 0px;
 					color: rgba(0,0,0,0);
 				}
 				to {
-					top: 8vh;
 					color: black;
 				}
 			}
@@ -170,8 +177,8 @@
 		<div style="text-align: center">
 			<h1>一元二次方程求解</h1>
 			<label>Only supports cases where a, b, and c are integers./只支持a b c为整数的情况</label>
-			<br>
-			<form class="form-inline">
+			<br><br>
+			<div class="form-inline">
 				<input type="text" id="a" placeholder="此处不能为0: a" onkeydown="if(event.keyCode==13){calc();return false;}">
 				<img src="https://zhihu.com/equation?tex=x^2%2B" alt="equation">
 				<input type="text" id="b" placeholder="b" onkeydown="if(event.keyCode==13){calc();return false;}">
@@ -180,10 +187,10 @@
 				<img src="https://zhihu.com/equation?tex==0" alt="equation">
 				<br><br>
 				结果保留<input type="text" id="fixednum" placeholder="0" value=3  onkeydown="if(event.keyCode==13){calc();return false;}">位小数。
-			</form>
-			<br><br>
-			<button class="btn-lg" onclick="calc()"><i class="fa fa-calculator"></i>&nbsp;Calc/开始计算</button>
-			<button class="btn-lg" value="Clear/清除" onclick="clr()"><i class="fa fa-times"></i>&nbsp;Clear/清除</button>
+				<br><br>
+				<button class="btn-lg" onclick="calc()"><i class="fa fa-calculator"></i>&nbsp;Calc/开始计算</button>
+				<button class="btn-lg" value="Clear/清除" onclick="clr()"><i class="fa fa-times"></i>&nbsp;Clear/清除</button>
+			</div>
 			<br><br>
 			<img id="eq" src="https://zhihu.com/equation?tex=x=\frac{-b\pm\sqrt{b^2-4ac}} {2a}" alt="equation">
 			<br><br>
