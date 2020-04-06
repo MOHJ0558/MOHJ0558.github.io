@@ -146,11 +146,11 @@
 						}
 					}
 					if (k==1) {
-						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+">0,\\ x_1=\\frac{"+(-b)+"%2B\\sqrt{"+tmp+"}} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-\\sqrt{"+tmp+"}} {"+2*a+"}="+x2;
+						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"\\ge 0,\\ x_1=\\frac{"+(-b)+"%2B\\sqrt{"+tmp+"}} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-\\sqrt{"+tmp+"}} {"+2*a+"}="+x2;
 					} else if (tmp==1) {
-						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+">0,\\ x_1=\\frac{"+(-b)+"%2B"+k+"} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-"+k+"} {"+2*a+"}="+x2;
+						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"\\ge 0,\\ x_1=\\frac{"+(-b)+"%2B"+k+"} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-"+k+"} {"+2*a+"}="+x2;
 					} else {
-						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+">0,\\ x_1=\\frac{"+(-b)+"%2B"+k+"\\sqrt{"+tmp+"}} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-"+k+"\\sqrt{"+tmp+"}} {"+2*a+"}="+x2;
+						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"\\ge 0,\\ x_1=\\frac{"+(-b)+"%2B"+k+"\\sqrt{"+tmp+"}} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-"+k+"\\sqrt{"+tmp+"}} {"+2*a+"}="+x2;
 					}
 				}
 			}
@@ -180,13 +180,13 @@
 				<br><br>
 				结果保留<input type="text" id="fixednum" placeholder="0" value=3  onkeydown="if(event.keyCode==13){calc();return false;}">位小数。
 			</form>
-			<br>
-			<img id="eq" src="https://zhihu.com/equation?tex=x=\frac{-b\pm\sqrt{b^2-4ac}} {2a}" alt="equation">
-			<br><br>
-			<img id="result" src="https://zhihu.com/equation?tex=x_1=?,\ x_2=?" alt="equation">
 			<br><br>
 			<button class="btn-lg" onclick="calc()"><i class="fa fa-calculator"></i>&nbsp;Calc/开始计算</button>
 			<button class="btn-lg" value="Clear/清除" onclick="clr()"><i class="fa fa-times"></i>&nbsp;Clear/清除</button>
+			<br><br>
+			<img id="eq" src="https://zhihu.com/equation?tex=x=\frac{-b\pm\sqrt{b^2-4ac}} {2a}" alt="equation">
+			<br><br>
+			<img id="result" src="https://zhihu.com/equation?tex=x_1=?,\ x_2=?" alt="equation">
 		</div>
 		<br>
 		<div id="tip"><a href="../menu/menu.html" class="btn" style="text-align: left"><i class="fa fa-angle-left"></i>&nbsp;Go back/返回</a>，点击开始计算按钮或在任意位置按<kbd>Enter</kbd>键计算。本网页使用了知乎的<img src="https://zhihu.com/equation?tex=\LaTeX">表达式，结果的出现速度由数的大小和连接知乎的速度而定。</div>
