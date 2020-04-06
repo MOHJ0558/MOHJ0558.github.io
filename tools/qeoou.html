@@ -18,21 +18,18 @@
 			}
 			h1 {
 				transition: letter-spacing .5s;
-				-webkit-transition: letter-spacing .5s;
 			}
 			h1:hover {
 				letter-spacing: 10px;
 			}
 			input[type="text"] {
 				transition: background-color .2s;
-				-webkit-transition: background-color .2s;
 				text-align: right;
 				background-color: #F0F0F0;
 				border: 2px solid #F0F0F0;
 			}
 			input[type="button"] {
 				transition: background-color .2s;
-				-webkit-transition: background-color .2s;
 				outline: none;
 				background-color: #F0F0F0;
 				border: 2px solid #F0F0F0;
@@ -41,11 +38,8 @@
 				background-color: #E0E0E0;
 			}
 			input:active {
+				transition: background-color 0s;
 				background-color: #D0D0D0;
-			}
-			img {
-				transition: src .2s;
-				-webkit-transition: src .2s;
 			}
 			#fixed {
 				height: 30px;
@@ -54,20 +48,8 @@
 				position: relative;
 				animation: stepin 1s linear;
 				animation-fill-mode: forwards;
-				-webkit-animation: stepin 1s linear;
-				-webkit-animation-fill-mode: forwards;
 			}
 			@keyframes stepin {
-				from {
-					top: 0px;
-					color: #F8F8F8;
-				}
-				to {
-					top: 8vh;
-					color: black;
-				}
-			}
-			@-webkit-keyframes stepin {
 				from {
 					top: 0px;
 					color: #F8F8F8;
