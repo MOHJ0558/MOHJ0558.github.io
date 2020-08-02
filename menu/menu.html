@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -31,33 +32,66 @@
 				left: 20px;
 				top: 20px;
 			}
-			.row a .col-md-4 {
+			.row .col-md-4 {
 				outline: none;
-				height: 150px;
-				margin: 5px 0px;
+				height: 200px;
+				margin: 0;
 				padding: 0;
 				transition: all .3s;
 				border: 0;
 				border-radius: 20px;
 			}
-			.row a .col-md-4:hover {
-				transform: scale(1.1);
-				box-shadow: 0px 0px 50px 10px rgba(0,0,0,.25);
+			.row .col-md-4:hover {
+				box-shadow: 0px 0px 50px rgba(0,0,0,.25);
 				background-color: #FCFCFC;
 				color: #444444;
 			}
-			.row a .col-md-4:active {
+			.row .col-md-4:active {
 				transition: all .1s;
-				transform: scale(1);
-				box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+				box-shadow: 0px 0px 0px rgba(0,0,0,0);
 				background-color: #F8F8F8;
 				color: #000000;
+			}
+			.row .col-md-4:hover .center {
+				top: 30%;
+				left: 50%;
+				transform: translate(-50%,-50%);
 			}
 			.center {
 				position: absolute;
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%,-50%);
+				transition: all .3s;
+			}
+			.center:hover {
+				position: absolute;
+				top: 45%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+			.linecenter {
+				position: absolute;
+				left: 50%;
+				transform: translate(-50%,0%);
+			}
+			.center a {
+				text-align: center;
+				line-height: 50px;
+				display: block;
+				background: rgba(0,0,0,0);
+				color: rgba(255,255,255,0);
+				height: 50px;
+				width: 200px;
+				border-radius: 25px;
+				font-family: "Open Sans", "Noto Sans SC", sans-serif;
+				font-size: 16px;
+				transition: all .3s;
+			}
+			.row .col-md-4:hover .center a{
+				visibility: visible;
+				background: rgba(0,0,0,.75);
+				color: rgba(255,255,255,1);
 			}
 		</style>
 	</head>
@@ -68,29 +102,26 @@
 			<h2>工具</h2>
 			<div class="container">
 				<div class="row">
-					<a href="../tools/avBV.html">
-						<div class="col-md-4">
-							<div class="center">
-								<h3>B站av/BV号互转</h3>
-								<h6>可以将B站的BV号转成av号，算法核心由知乎用户mcfx提供，在此表达感谢。</h6>
-							</div>
+					<div class="col-md-4">
+						<div class="center">
+							<h3>B站av/BV号互转</h3>
+							<h6>可以将B站的BV号转成av号，算法核心由知乎用户mcfx提供，在此表达感谢。</h6>
+							<a href="../tools/avBV.html" class="linecenter">Learn more&nbsp;<i class="fa fa-angle-right"></i></a>
 						</div>
-					</a>
-					<a href="../tools/qeoou.html">
-						<div class="col-md-4">
-							<div class="center">
-								<h3>一元二次方程求解</h3>
-								<h6>求解一元二次方程，支持虚数，但暂不支持小数(或分数)和分式化简。<h6>
-							</div>
+					</div>
+					<div class="col-md-4">
+						<div class="center">
+							<h3>一元二次方程求解</h3>
+							<h6>求解一元二次方程，支持虚数，但暂不支持小数(或分数)和分式化简。<h6>
+							<a href="../tools/qeoou.html" class="linecenter">Learn more&nbsp;<i class="fa fa-angle-right"></i></a>
 						</div>
-					</a>
-					<a href="#">
+					</div>
 						<div class="col-md-4">
 							<div class="center">
 								<h3>这是用来玩(占位)的。</h3>
+								<a href="#" class="linecenter">Learn more&nbsp;<i class="fa fa-angle-right"></i></a>
 							</div>
 						</div>
-					</a>
 				</div>
 			</div>
 		</div>
