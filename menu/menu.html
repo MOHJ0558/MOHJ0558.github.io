@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -40,6 +39,7 @@
 				border-radius: 20px;
 			}
 			.row .col-md-4:hover .center {
+				transition-delay: .1s;
 				top: 30%;
 				left: 50%;
 				transform: translate(-50%,-50%);
@@ -50,12 +50,6 @@
 				left: 50%;
 				transform: translate(-50%,-50%);
 				transition: all .3s;
-			}
-			.center:hover {
-				position: absolute;
-				top: 45%;
-				left: 50%;
-				transform: translate(-50%,-50%);
 			}
 			.linecenter {
 				position: absolute;
@@ -76,7 +70,7 @@
 				transition: all .3s;
 			}
 			.row .col-md-4:hover .center a{
-				transition-delay: .2s;
+				transition-delay: .3s;
 				visibility: visible;
 				background: rgba(0,0,0,.75);
 				color: rgba(255,255,255,1);
