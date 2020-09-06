@@ -6,10 +6,10 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono|Open+Sans|Noto+Sans+SC">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC">
 		<style>
 			body {
-				font-family: "Open Sans", "Noto Sans SC", sans-serif;
+				font-family: "Noto Serif SC", serif;
 				position: absolute;
 				border: 0;
 				height: 100vh;
@@ -22,26 +22,35 @@
 				align-items: center;
 				flex-direction: column;
 			}
+			a {text-decoration: none;}
+			a:link {color:#000000;text-decoration: none;}
+			a:visited {color:#000000;text-decoration: none;}
+			a:hover {color: #000000;text-decoration: none;}
+			a:active {color:#000000;text-decoration: none;}
 			h1 {
 				transition: letter-spacing .5s;
 			}
 			h1:hover {
 				letter-spacing: 10px;
 			}
-			input[type="text"] {
+			input {
 				outline: none;
 				transition: all .5s;
 				text-align: right;
 				border: 0;
-				border-bottom: 1px solid rgba(0,0,0,.25);
+				border-bottom: 1px solid rgba(0,0,0,1);
 				border-radius: 0;
 				background-color: rgba(0,0,0,0);
+				font-size: 20px;
 			}
-			input[type="text"]:hover {
+			input:hover {
 				border-bottom: 1px solid rgba(0,0,0,.5);
 			}
-			input[type="text"]:focus {
-				border-bottom: 1px solid rgba(0,0,0,1);
+			input:focus {
+				border-bottom: 1px solid rgba(0,0,0,0);
+			}
+			input:not(:placeholder-shown) {
+				border-bottom: 1px solid rgba(0,0,0,0);
 			}
 			button {
 				width: 300px;
@@ -74,6 +83,13 @@
 				position: fixed;
 				left: 10px;
 				bottom: 10px;
+			}
+			#back {
+				position: absolute;
+				font-size: 36px;
+				left: 20px;
+				top: 20px;
+				line-height: 1rem;
 			}
 			@keyframes stepin {
 				from {
@@ -172,12 +188,16 @@
 				id("b").value="";
 				id("c").value="";
 			}
+			function closeTips() {
+				id("tip").style.display="none";
+			}
 		</script>
 	</head>
 	<body id="stepin">
+		<div id="back"><a href="../menu/menu.html"><i class="fa fa-angle-left"></i></a></div>
 		<div style="text-align: center">
 			<h1>一元二次方程求解</h1>
-			<label>Only supports cases where a, b, and c are integers./只支持a b c为整数的情况</label>
+			<label>Only supports cases where a, b, and c are integers./只支持a，b，c为整数的情况</label>
 			<br><br>
 			<div class="form-inline">
 				<input type="text" id="a" placeholder="此处不能为0: a" onkeydown="if(event.keyCode==13){calc();return false;}">
@@ -187,7 +207,7 @@
 				<input type="text" id="c" placeholder="c" onkeydown="if(event.keyCode==13){calc();return false;}">
 				<img src="https://zhihu.com/equation?tex==0" alt="equation">
 				<br><br>
-				结果保留<input type="text" id="fixednum" placeholder="0" value=3  onkeydown="if(event.keyCode==13){calc();return false;}">位小数。
+				结果保留<input type="text" id="fixednum" placeholder="0" value=3 onkeydown="if(event.keyCode==13){calc();return false;}">位小数。
 				<br><br>
 				<button class="btn-lg" onclick="calc()"><i class="fa fa-calculator"></i>&nbsp;Calc/开始计算</button>
 				<button class="btn-lg" value="Clear/清除" onclick="clr()"><i class="fa fa-times"></i>&nbsp;Clear/清除</button>
@@ -198,7 +218,7 @@
 			<img id="result" src="https://zhihu.com/equation?tex=x_1=?,\ x_2=?" alt="equation">
 		</div>
 		<br>
-		<div id="tip"><a href="../menu/menu.html" class="btn" style="text-align: left"><i class="fa fa-angle-left"></i>&nbsp;Go back/返回</a>，点击开始计算按钮或在任意位置按<kbd>Enter</kbd>键计算。本网页使用了知乎的<img src="https://zhihu.com/equation?tex=\LaTeX">表达式，结果的出现速度由数的大小和连接知乎的速度而定。</div>
+		<div id="tip">，点击开始计算按钮或在任意位置按<kbd>Enter</kbd>键计算。本网页使用了知乎的<img src="https://zhihu.com/equation?tex=\LaTeX">表达式API，结果的出现速度由数的大小和连接知乎的速度而定。<button onclick="closeTips()"><i class="fa fa-times"></i>&nbsp;关闭</button></div>
 		<script>
 			document.onkeydown=function(event){
 			if(event.keyCode==13) {
