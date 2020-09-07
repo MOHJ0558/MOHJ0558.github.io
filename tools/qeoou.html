@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -41,7 +42,8 @@
 				border-bottom: 1px solid rgba(0,0,0,1);
 				border-radius: 0;
 				background-color: rgba(0,0,0,0);
-				font-size: 20px;
+				font-size: 16px;
+				width: 100px;
 			}
 			input:hover {
 				border-bottom: 1px solid rgba(0,0,0,.5);
@@ -53,23 +55,34 @@
 				border-bottom: 1px solid rgba(0,0,0,0);
 			}
 			button {
-				width: 300px;
-				transition: all .2s;
+				position: relative;
+				overflow: hidden;
 				outline: none;
 				border: 0;
-				border-bottom: 1px solid rgba(0,0,0,0);
+				margin: 0 10px;
+				width: 200px;
+				height: 50px;
+				font-size: 16px;
+				border-radius: 25px;
 				background-color: rgba(0,0,0,0);
-			}
-			button:hover {
-				transform: scale(1.1);
+				transition: all .15s ease;
 			}
 			button:active {
-				transform: scale(1);
+				background-color: rgba(0,0,0,.2);
 			}
-			div.form-inline {
-				border-radius: 10px;
-				padding: 50px;
-				box-shadow: 10px 10px 10px 10px rgba(0,0,0,.25);
+			button::before {
+				content: "";
+				display: block;
+				position: absolute;
+				height: 1px;
+				width: 0%;
+				bottom: 0;
+				left: 0;
+				background: #000;
+				transition: all .5s cubic-bezier(.5,0,.5,1);
+			}
+			button:hover::before {
+				width: 100%;
 			}
 			#fixednum {
 				height: 30px;
@@ -80,7 +93,7 @@
 				animation-fill-mode: forwards;
 			}
 			#tip {
-				position: fixed;
+				position: absolute;
 				left: 10px;
 				bottom: 10px;
 			}
@@ -144,11 +157,11 @@
 						}
 					}
 					if (k==1) {
-						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"<0,\\ x_1=\\frac{"+(-b)+"%2B\\sqrt{"+tmp+"}\\, i} {"+2*a+"}="+xr+"%2B"+xi1+"i,\\ x_2=\\frac{"+(-b)+"-\\sqrt{"+tmp+"}\\, i} {"+2*a+"}="+xr+xi2+"i";
+						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"<0,\\ x_1=\\frac{"+(-b)+"%2B\\sqrt{"+tmp+"}\\, i} {"+2*a+"}="+xr+"%2B"+xi1+"i,\\\\x_2=\\frac{"+(-b)+"-\\sqrt{"+tmp+"}\\, i} {"+2*a+"}="+xr+xi2+"i";
 					} else if (tmp==1) {
-						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"<0,\\ x_1=\\frac{"+(-b)+"%2B"+k+"\\, i} {"+2*a+"}="+xr+"%2B"+xi1+"i,\\ x_2=\\frac{"+(-b)+"-"+k+"\\, i} {"+2*a+"}="+xr+xi2+"i";
+						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"<0,\\ x_1=\\frac{"+(-b)+"%2B"+k+"\\, i} {"+2*a+"}="+xr+"%2B"+xi1+"i,\\\\x_2=\\frac{"+(-b)+"-"+k+"\\, i} {"+2*a+"}="+xr+xi2+"i";
 					} else {
-						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"<0,\\ x_1=\\frac{"+(-b)+"%2B"+k+"\\sqrt{"+tmp+"}\\, i} {"+2*a+"}="+xr+"%2B"+xi1+"i,\\ x_2=\\frac{"+(-b)+"-"+k+"\\sqrt{"+tmp+"}\\, i} {"+2*a+"}="+xr+xi2+"i";
+						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"<0,\\ x_1=\\frac{"+(-b)+"%2B"+k+"\\sqrt{"+tmp+"}\\, i} {"+2*a+"}="+xr+"%2B"+xi1+"i,\\\\x_2=\\frac{"+(-b)+"-"+k+"\\sqrt{"+tmp+"}\\, i} {"+2*a+"}="+xr+xi2+"i";
 					}
 				} else {
 					var rtdlt=Math.sqrt(dlt);
@@ -171,11 +184,11 @@
 						}
 					}
 					if (k==1) {
-						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"\\ge 0,\\ x_1=\\frac{"+(-b)+"%2B\\sqrt{"+tmp+"}} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-\\sqrt{"+tmp+"}} {"+2*a+"}="+x2;
+						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"\\ge 0,\\ x_1=\\frac{"+(-b)+"%2B\\sqrt{"+tmp+"}} {"+2*a+"}="+x1+",\\\\x_2=\\frac{"+(-b)+"-\\sqrt{"+tmp+"}} {"+2*a+"}="+x2;
 					} else if (tmp==1) {
-						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"\\ge 0,\\ x_1=\\frac{"+(-b)+"%2B"+k+"} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-"+k+"} {"+2*a+"}="+x2;
+						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"\\ge 0,\\ x_1=\\frac{"+(-b)+"%2B"+k+"} {"+2*a+"}="+x1+",\\\\x_2=\\frac{"+(-b)+"-"+k+"} {"+2*a+"}="+x2;
 					} else {
-						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"\\ge 0,\\ x_1=\\frac{"+(-b)+"%2B"+k+"\\sqrt{"+tmp+"}} {"+2*a+"}="+x1+",\\ x_2=\\frac{"+(-b)+"-"+k+"\\sqrt{"+tmp+"}} {"+2*a+"}="+x2;
+						res.src="https://zhihu.com/equation?tex=\\Delta="+dlt+"\\ge 0,\\ x_1=\\frac{"+(-b)+"%2B"+k+"\\sqrt{"+tmp+"}} {"+2*a+"}="+x1+",\\\\x_2=\\frac{"+(-b)+"-"+k+"\\sqrt{"+tmp+"}} {"+2*a+"}="+x2;
 					}
 				}
 			}
@@ -183,7 +196,7 @@
 				var eq=id("eq");
 				var res=id("result");
 				eq.src="https://zhihu.com/equation?tex=x=\\frac{-b\\pm\\sqrt{b^2-4ac}} {2a}";
-				res.src="https://zhihu.com/equation?tex=x_1=?,\\ x_2=?";
+				res.src="https://zhihu.com/equation?tex=x_1=?,\\\\x_2=?";
 				id("a").value="";
 				id("b").value="";
 				id("c").value="";
@@ -197,10 +210,10 @@
 		<div id="back"><a href="../menu/menu.html"><i class="fa fa-angle-left"></i></a></div>
 		<div style="text-align: center">
 			<h1>一元二次方程求解</h1>
-			<label>Only supports cases where a, b, and c are integers./只支持a，b，c为整数的情况</label>
+			<label>Only supports cases where a, b, and c are integers./只支持a，b，c三者均为整数的情况</label>
 			<br><br>
 			<div class="form-inline">
-				<input type="text" id="a" placeholder="此处不能为0: a" onkeydown="if(event.keyCode==13){calc();return false;}">
+				<input type="text" id="a" placeholder="a|a≠0" onkeydown="if(event.keyCode==13){calc();return false;}">
 				<img src="https://zhihu.com/equation?tex=x^2%2B" alt="equation">
 				<input type="text" id="b" placeholder="b" onkeydown="if(event.keyCode==13){calc();return false;}">
 				<img src="https://zhihu.com/equation?tex=x%2B" alt="equation">
@@ -209,16 +222,16 @@
 				<br><br>
 				结果保留<input type="text" id="fixednum" placeholder="0" value=3 onkeydown="if(event.keyCode==13){calc();return false;}">位小数。
 				<br><br>
-				<button class="btn-lg" onclick="calc()"><i class="fa fa-calculator"></i>&nbsp;Calc/开始计算</button>
-				<button class="btn-lg" value="Clear/清除" onclick="clr()"><i class="fa fa-times"></i>&nbsp;Clear/清除</button>
+				<button onclick="calc()"><i class="fa fa-calculator"></i>&nbsp;Calc/开始计算</button>
+				<button value="Clear/清除" onclick="clr()"><i class="fa fa-times"></i>&nbsp;Clear/清除</button>
 			</div>
 			<br><br>
 			<img id="eq" src="https://zhihu.com/equation?tex=x=\frac{-b\pm\sqrt{b^2-4ac}} {2a}" alt="equation">
 			<br><br>
-			<img id="result" src="https://zhihu.com/equation?tex=x_1=?,\ x_2=?" alt="equation">
+			<img id="result" src="https://zhihu.com/equation?tex=x_1=?,\\x_2=?" alt="equation">
 		</div>
 		<br>
-		<div id="tip">，点击开始计算按钮或在任意位置按<kbd>Enter</kbd>键计算。本网页使用了知乎的<img src="https://zhihu.com/equation?tex=\LaTeX">表达式API，结果的出现速度由数的大小和连接知乎的速度而定。<button onclick="closeTips()"><i class="fa fa-times"></i>&nbsp;关闭</button></div>
+		<div id="tip">点击开始计算按钮或在任意位置按<kbd>Enter</kbd>键计算。本网页使用了知乎的<img src="https://zhihu.com/equation?tex=\LaTeX">表达式API，结果的出现速度由数的大小和连接知乎的速度而定。<button onclick="closeTips()"><i class="fa fa-times"></i>&nbsp;关闭提示</button></div>
 		<script>
 			document.onkeydown=function(event){
 			if(event.keyCode==13) {
