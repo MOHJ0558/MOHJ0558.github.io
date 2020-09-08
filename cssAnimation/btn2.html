@@ -70,14 +70,12 @@
 			button span::after {
 				content: "»";
 				color: #000;
+				animation: right 1s infinite;
 				position: absolute;
 			}
 			button:hover span {
 				padding-right: 1.5rem;
 				color: #000;
-			}
-			button:hover:not(:active) span::after {
-				animation: right 1s infinite;
 			}
 			@keyframes colorChange {
 				to {
