@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -64,13 +65,11 @@
 			}
 			button span {
 				font-size: 2rem;
-				text-align: center;
 				transition: all .3s;
 			}
 			button span::after {
-				content: "»";
+				content: "\00A0»";
 				color: #000;
-				animation: right 1s infinite;
 				position: absolute;
 			}
 			button:hover span {
@@ -82,15 +81,9 @@
 					background: rgba(0,0,0,0);
 				}
 			}
-			@keyframes right {
-				to {
-					padding-left: 1rem;
-					opacity: 0;
-				}
-			}
 		</style>
 	</head>
 	<body>
-		<button><span>Learn more&nbsp;</span></button>
+		<button><span>Learn more</span></button>
 	</body>
 </html>
