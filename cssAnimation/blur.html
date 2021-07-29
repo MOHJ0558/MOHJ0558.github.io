@@ -43,7 +43,7 @@
 		<script>
 			function doGetRange(){
 				var val = document.getElementById('range').value;
-				document.getElementById('test').style.backdropFilter = 'blur(' + val + 'px) saturate(' + (-(1/(val/5+2)) + 1.5) + ')';
+				document.getElementById('test').style.backdropFilter = 'blur(' + val + 'px) saturate(' + (Math.log(val / 100 + 1) + 1) + ')';
 			}
 			setInterval('doGetRange()', 1);
 		</script>
