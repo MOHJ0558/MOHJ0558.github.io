@@ -71,26 +71,19 @@
       cursor: pointer;
       background-color: #6200ee;
       color: white;
-      transition: all 0.3s ease;
     }
 
     .button:hover {
       background-color: #6200ee99;
     }
 
-    .button:focus::before {
-      content: "";
-      display: block;
-      position: absolute;
-      top: -6px; right: -6px; bottom: -6px; left: -6px;
-      border-radius: inherit;
-      background-color: currentColor;
-      opacity: .12;
+    .button:active {
+      background-color: #6200ee98;
     }
+
     .input-field {
       position: relative;
       margin-top:20px;
-      transition: all 0.3s ease;
     }
 
     .input-field label {
